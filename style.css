@@ -1,0 +1,12 @@
+/* Restaurant — Color overrides only. All structure in _shared/ */
+@import url('css/base.css');
+@import url('css/components.css');
+
+:root {
+  --clr-primary:    #c2410c;
+  --clr-primary-dk: #9a330a;
+  --clr-accent:     #fbbf24;
+}
+
+/* Yellow accent: dark text for legibility */
+.btn-accent { color: var(--clr-gray-900); }
