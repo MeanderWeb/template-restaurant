@@ -10,7 +10,7 @@
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="[BUSINESS_NAME] | Fresh Seafood · [CITY], [STATE]">
   <meta property="og:description" content="Fresh seafood restaurant in Cape Coral, FL. Lunch, dinner, catering &amp; Sunday brunch. Family owned.">
-  <meta property="og:url"         content="https://www.pelicangrille.com">
+  <meta property="og:url"         content="[OG_URL]">
   <meta property="og:site_name"   content="[BUSINESS_NAME]">
 
   <!-- Google Fonts: Inter -->
@@ -51,7 +51,7 @@
 ═══════════════════════════════════════════ -->
 <header class="site-header">
   <div class="container header-inner">
-    <a href="#" class="logo">The Pelican<span>Grille</span></a>
+    <a href="#" class="logo">[BUSINESS_NAME]</a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <nav class="nav-menu" aria-label="Main navigation">
@@ -154,7 +154,7 @@
   <div class="container about-inner">
     <div class="about-text">
       <span class="section-label">Our Story</span>
-      <h2 class="section-title">Fresh Gulf Flavors Since [YEAR_FOUNDED]</h2>
+      <h2 class="section-title">Fresh Gulf Flavors <span class="since">Since <span class="since-year">[YEAR_FOUNDED]</span></span></h2>
       <p>The Pelican Grille opened in 2016 with one mission: bring the freshest Gulf seafood to a comfortable, welcoming spot in Cape Coral. We source locally whenever possible, support Cape Coral fishermen, and cook everything from scratch.</p>
       <p>From first dates to family dinners, we've been honored to be part of Cape Coral's dining scene for nearly a decade. We're not a chain — we're your neighbors, and we treat every guest like family.</p>
     </div>
@@ -284,10 +284,12 @@
       <a href="#" class="footer-logo">[BUSINESS_NAME]</a>
       <p class="footer-tagline">Fresh Gulf Flavors, Right Here in Cape Coral</p>
       <p>Family Owned &amp; Operated Since [YEAR_FOUNDED]</p>
+      <p class="license-line"><span class="license">[LICENSE_NUMBER]</span></p>
       <div class="footer-contact">
         <a href="tel:[PHONE]">[PHONE]</a>
         <a href="mailto:[EMAIL]">[EMAIL]</a>
-        <span>[ADDRESS], [CITY], [STATE] [ZIP]</span>
+        <span class="addr-street">[ADDRESS]</span>
+          <span class="addr-city">[CITY], [STATE] [ZIP]</span>
       </div>
     </div>
     <div class="footer-nav">
@@ -315,7 +317,10 @@
       <p>Friday: 11 AM – 10 PM</p>
       <p>Sat: 10 AM – 10 PM</p>
       <p>Sun: 10 AM – 8 PM</p>
-      <p class="footer-address">[ADDRESS]<br>[CITY], [STATE] [ZIP]</p>
+      <p class="footer-address">
+        <span class="addr-street">[ADDRESS]</span>
+        <span class="addr-city">[CITY], [STATE] [ZIP]</span>
+      </p>
     </div>
   </div>
   <div class="footer-bottom">
@@ -325,6 +330,20 @@
   </div>
 </footer>
 
-<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  document.querySelectorAll('.license').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.addr-street').forEach(el => {
+    if (!el.textContent.trim()) el.style.display = 'none';
+  });
+
+  document.querySelectorAll('.since-year').forEach(el => {
+    if (!el.textContent.trim()) el.closest('.since').remove();
+  });
+</script>
 </body>
 </html>
