@@ -113,35 +113,35 @@
       <p class="section-subtitle">From a casual weeknight dinner to a full corporate catering event, we've got you covered.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">🍽️</div>
-        <h3>Lunch &amp; Dinner</h3>
-        <p>Full menu served daily with Gulf-fresh seafood, hand-cut steaks, and local favorites.</p>
+      <div class="service-card" data-service="1">
+        <span class="service-icon">[SERVICE_1_ICON]</span>
+        <h3 class="service-name">[SERVICE_1_NAME]</h3>
+        <p class="service-desc">[SERVICE_1_DESC]</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🥡</div>
-        <h3>Takeout Orders</h3>
-        <p>Call ahead or order online for fast, fresh takeout ready in 20 minutes or less.</p>
+      <div class="service-card" data-service="2">
+        <span class="service-icon">[SERVICE_2_ICON]</span>
+        <h3 class="service-name">[SERVICE_2_NAME]</h3>
+        <p class="service-desc">[SERVICE_2_DESC]</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🎉</div>
-        <h3>Private Events</h3>
-        <p>Reserve our private dining room for birthdays, anniversaries, and corporate gatherings.</p>
+      <div class="service-card" data-service="3">
+        <span class="service-icon">[SERVICE_3_ICON]</span>
+        <h3 class="service-name">[SERVICE_3_NAME]</h3>
+        <p class="service-desc">[SERVICE_3_DESC]</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🍱</div>
-        <h3>Catering</h3>
-        <p>Full-service catering for parties of 20 to 500 with custom menus and on-site setup.</p>
+      <div class="service-card" data-service="4">
+        <span class="service-icon">[SERVICE_4_ICON]</span>
+        <h3 class="service-name">[SERVICE_4_NAME]</h3>
+        <p class="service-desc">[SERVICE_4_DESC]</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🍹</div>
-        <h3>Happy Hour</h3>
-        <p>Daily happy hour specials on drinks and appetizers from 3 to 6 PM.</p>
+      <div class="service-card" data-service="5">
+        <span class="service-icon">[SERVICE_5_ICON]</span>
+        <h3 class="service-name">[SERVICE_5_NAME]</h3>
+        <p class="service-desc">[SERVICE_5_DESC]</p>
       </div>
-      <div class="service-card">
-        <div class="service-icon">🥞</div>
-        <h3>Sunday Brunch</h3>
-        <p>Weekend brunch featuring bottomless mimosas, fresh-baked pastries, and brunch classics.</p>
+      <div class="service-card" data-service="6">
+        <span class="service-icon">[SERVICE_6_ICON]</span>
+        <h3 class="service-name">[SERVICE_6_NAME]</h3>
+        <p class="service-desc">[SERVICE_6_DESC]</p>
       </div>
     </div>
   </div>
@@ -343,6 +343,13 @@
 
   document.querySelectorAll('.since-year').forEach(el => {
     if (!el.textContent.trim()) el.closest('.since').remove();
+  });
+
+  document.querySelectorAll('.service-card').forEach(card => {
+    const name = card.querySelector('.service-name');
+    if (!name || !name.textContent.trim()) {
+      card.style.display = 'none';
+    }
   });
 </script>
 </body>
